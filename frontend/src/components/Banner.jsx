@@ -42,7 +42,7 @@ const Banner = () => {
 
   }
   return (
-    <Box position="relative" zIndex={2} bg='black' w='100%' p={1.5} color='white'>
+    <Box bg='black' w='100%' p={1.5} color='white'>
       <Container maxW="container.xl">
         <HStack fontSize="16px" justify="space-between">
           <IconButton  onClick={handleDecrement} fontSize="20px" variant="gosht" icon={<IoIosArrowBack />} />

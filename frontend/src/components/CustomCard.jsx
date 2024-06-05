@@ -48,3 +48,4 @@ const CustomCard = ({id,title,imageUrl,name,rating,review,badge1,badge2,price,st
 }
 
 export default CustomCard
+// transition="transform 500ms" _hover={{transform:"scale(1.02)"}} 
