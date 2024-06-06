@@ -12,6 +12,7 @@ import rabbit from '/rabbit.svg'
 import perfume from '/perfume.svg'
 import wallet from '/wallet.svg'
 import gender from '/gender.svg'
+import Marquee from 'react-fast-marquee';
 
 
 const Home = () => {
@@ -139,7 +140,7 @@ const Home = () => {
       </HStack>
 
       <Container maxW="80%">
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={6}>
           {
             toggle ?
               newArrivalData.map((product) => <CustomCard key={product.id} {...product} />)
@@ -235,30 +236,61 @@ const Home = () => {
       <Container maxW="80%">
         <Heading size="md" textAlign="center" my={10}>WHY BELLAVITA?</Heading>
         <HStack textAlign='center' spacing={10}>
-        <Box>
-          <Image margin="auto" boxSize={20} src={rabbit}/>
-          <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
-          <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
-        </Box>
-        <Box>
-          <Image margin="auto" boxSize={20} src={perfume}/>
-          <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
-          <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
-        </Box>
-        <Box>
-          <Image margin="auto" boxSize={20} src={wallet}/>
-          <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
-          <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
-        </Box>
-        <Box>
-          <Image margin="auto" boxSize={20} src={gender}/>
-          <Text  my="10px" fontSize="lg">CRUELTY FREE</Text>
-          <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
-        </Box>
+          <Box>
+            <Image margin="auto" boxSize={20} src={rabbit} />
+            <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
+            <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
+          </Box>
+          <Box>
+            <Image margin="auto" boxSize={20} src={perfume} />
+            <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
+            <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
+          </Box>
+          <Box>
+            <Image margin="auto" boxSize={20} src={wallet} />
+            <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
+            <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
+          </Box>
+          <Box>
+            <Image margin="auto" boxSize={20} src={gender} />
+            <Text my="10px" fontSize="lg">CRUELTY FREE</Text>
+            <Text color="gray.500">Kindness in every bottle: Our commitment to cruelty-free Products.</Text>
+          </Box>
         </HStack>
       </Container>
       <Box my={20}>
-        <Image src='https://bellavitaorganic.com/cdn/shop/files/download-the-app-banner-desktop.jpg?v=1715262335&width=1920'/>
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/download-the-app-banner-desktop.jpg?v=1715262335&width=1920' />
+      </Box>
+
+      <HStack spacing={0}>
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/1_e3a8356d-1e07-4f9e-b006-463aee598ee0.jpg?v=1698731698&width=300' />
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/2_2453e5e3-fecb-46e3-ad9e-00bea4baa462.jpg?v=1698731719&width=300' />
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/3_d271220e-4353-4fea-a475-33e62f47e1dc.jpg?v=1716359925&width=300' />
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/4_68a3c022-75df-4304-8d47-6a1671886316.jpg?v=1698731754&width=300' />
+        <Image src='https://bellavitaorganic.com/cdn/shop/files/5_b43e7ec7-8e4b-464f-b5a4-78854aa116d8.jpg?v=1698731774&width=300' />
+      </HStack>
+
+      <Box my={8}>
+        <Marquee autoFill speed={80} pauseOnHover>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/HT_4a741228-3740-4f84-97bc-3c093ceec75a.jpg?height=80&v=1716360141' />
+          </Box>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/Elle_480x_db18e8ef-2f25-4299-9c39-73af4c300969.jpg?height=80&v=1716878217' />
+          </Box>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/Ani_480x_14446b4e-c91a-46df-a133-a95092fe484e.jpg?height=80&v=1716878217' />
+          </Box>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/IDiva_480x_1617c636-c0ed-4ed2-bb06-36e1906728ff.jpg?height=80&v=1716878216' />
+          </Box>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/Pinkvilla_480x_a664ac7e-bd4f-45ae-b43a-b5ce25e0b530.jpg?height=80&v=1716878216' />
+          </Box>
+          <Box marginRight="60px">
+            <Image src='https://bellavitaorganic.com/cdn/shop/files/BW_460x460_dcd6c999-6863-4ea2-ae4a-5621f5a51507.png?height=80&v=1717310549' />
+          </Box>
+        </Marquee>
       </Box>
     </>
   )
