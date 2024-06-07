@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <>
         <Banner/>
-        <Box zIndex={1} position="sticky" top="0" borderBottom="1px" borderColor="gray.300" bg="white">
+        <Box zIndex={10} position="sticky" top="0" borderBottom="1px" borderColor="gray.300" bg="white">
             <Box m="auto" w="70%">
             <HStack justify="space-between">
                 <Box >
