@@ -30,7 +30,7 @@ const Login = () => {
     // Post Request for Login
     async function postLoginDetails() {
         try {
-            let res = await axios.get(`http://localhost:3000/signupDetails?email=${loginDetails.email}&password=${loginDetails.password}`);
+            let res = await axios.get(`https://galvanized-wild-look.glitch.me/signupDetails?email=${loginDetails.email}&password=${loginDetails.password}`);
             console.log(res.data)
             setUserDetails(res.data)
             // setData(res.data)

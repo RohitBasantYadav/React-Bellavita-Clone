@@ -57,7 +57,7 @@ const Navbar = () => {
 
     const fetchCartData = async () => {
         try {
-            let res = await axios.get('http://localhost:3000/cart');
+            let res = await axios.get('https://galvanized-wild-look.glitch.me/cart');
             const itemsWithCount = res.data.map(item => ({ ...item, count: 1 }));
             setCartItems(itemsWithCount);
             setCartSize(res.data.length)
@@ -68,7 +68,7 @@ const Navbar = () => {
 
     async function deleteCartItem(id) {
         try {
-            let res = await axios.delete(`http://localhost:3000/cart/${id}`);
+            let res = await axios.delete(`https://galvanized-wild-look.glitch.me/cart/${id}`);
             setCartSize(res.data.length)
         } catch (error) {
             console.log(error)

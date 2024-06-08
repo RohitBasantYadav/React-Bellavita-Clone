@@ -29,7 +29,7 @@ const SignUp = () => {
     // Post Request for Login
     async function postLoginDetails() {
         try {
-            let res = await axios.post(`http://localhost:3000/signupDetails`, signupDetails);
+            let res = await axios.post(`https://galvanized-wild-look.glitch.me/signupDetails`, signupDetails);
             console.log(res)
             if(res.status==201){
                 alert("Account Created Successfully");

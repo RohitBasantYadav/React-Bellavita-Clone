@@ -26,7 +26,7 @@ const NewArrivals = () => {
         queryParams._sort = "price";
         queryParams._order = sortingValue;
       }
-      let res = await axios.get("http://localhost:3000/newArrivals", {
+      let res = await axios.get("https://galvanized-wild-look.glitch.me/newArrivals", {
         params: queryParams
       })
       setData(res.data)

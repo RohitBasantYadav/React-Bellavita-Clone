@@ -10,7 +10,7 @@ const CustomCard = ({id,title,imageUrl,name,rating,review,badge1,badge2,price,st
 
     async function addToCart(id){
       try {
-        let res = await axios.post(`http://localhost:3000/cart`,{
+        let res = await axios.post(`https://galvanized-wild-look.glitch.me/cart`,{
             title:title,
             imageUrl:imageUrl,
             name:name,

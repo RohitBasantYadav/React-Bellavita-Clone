@@ -25,7 +25,7 @@ const BathAndBody = () => {
         queryParams._sort = "price";
         queryParams._order = sortingValue;
       }
-      let res = await axios.get("http://localhost:3000/bathAndBody", {
+      let res = await axios.get("https://galvanized-wild-look.glitch.me/bathAndBody", {
         params: queryParams
       })
       setData(res.data)

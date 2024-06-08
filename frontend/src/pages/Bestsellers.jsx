@@ -26,7 +26,7 @@ const Bestsellers = () => {
         queryParams._sort = "price";
         queryParams._order = sortingValue;
       }
-      let res = await axios.get("http://localhost:3000/bestSellers", {
+      let res = await axios.get("https://galvanized-wild-look.glitch.me/bestSellers", {
         params: queryParams
       })
       setData(res.data)
