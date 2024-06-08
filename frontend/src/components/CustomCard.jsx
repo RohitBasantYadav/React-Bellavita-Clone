@@ -1,8 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Badge, Button, Card, CardBody, CardFooter, Container, HStack, Icon, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { StarIcon } from '@chakra-ui/icons'
 import { MdVerified } from "react-icons/md";
+import axios from 'axios';
+import { CartContext } from '../context-Api/CartContext';
 const CustomCard = ({id,title,imageUrl,name,rating,review,badge1,badge2,price,strikedPrice}) => {
+    const {cartSize, setCartSize} = useContext(CartContext)
+
+
+    async function addToCart(id){
+      try {
+        let res = await axios.post(`http://localhost:3000/cart`,{
+            title:title,
+            imageUrl:imageUrl,
+            name:name,
+            rating:rating,
+            review:review,
+            badge1:badge1,
+            badge2:badge2,
+            price:price,
+            strikedPrice:strikedPrice
+        })
+        console.log(res);
+        if(res.status === 201){
+            // alert("Item added to cart")
+            setCartSize(cartSize+1)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
     return (
         // <Container border="1px" maxW="80%">
         //     <SimpleGrid columns={{base:1,md:2,lg:4}} spacing={6}>
@@ -37,7 +65,7 @@ const CustomCard = ({id,title,imageUrl,name,rating,review,badge1,badge2,price,st
                         </Stack>
                     </CardBody>
                     <CardFooter>
-                        <Button variant='solid' w="100%" borderRadius="0px" bg="black" color="white">
+                        <Button onClick={()=>addToCart(id,title,imageUrl,name,rating,review,badge1,badge2,price,strikedPrice)} _hover={{bg:"black"}} variant='solid' w="100%" borderRadius="0px" bg="black" color="white">
                             ADD TO CART
                         </Button>
                     </CardFooter>

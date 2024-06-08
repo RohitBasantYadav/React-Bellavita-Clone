@@ -7,20 +7,43 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 const NewArrivals = () => {
   const [data, setData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
+  const [sortingValue,setSortingValue] = useState("");
+  const [filterValue, setFilterValue] = useState("")
 
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData(sortingValue,filterValue)
+  }, [sortingValue,filterValue])
 
-  async function getData() {
-    let res = await axios.get("http://localhost:3000/newArrivals")
-    setData(res.data)
-    setDataLength(res.data.length)
+  async function getData(sortingValue,filterValue) {
+    try {
+      const queryParams={};
+
+      if (filterValue) {
+        queryParams.title = filterValue
+      }
+      if (sortingValue) {
+        queryParams._sort = "price";
+        queryParams._order = sortingValue;
+      }
+      let res = await axios.get("http://localhost:3000/newArrivals", {
+        params: queryParams
+      })
+      setData(res.data)
+      setDataLength(res.data.length)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  function handleChange(e) {
-    console.log(e)
+  //Sorting Functionality:
+  function handleSorting(e) {
+    setSortingValue(e)
+  }
+
+  //Filtering functionality
+  function handleFiltering(e) {
+    setFilterValue(e)
   }
 
   return (
@@ -29,31 +52,33 @@ const NewArrivals = () => {
    <Container my={20} maxW="80%">
         <HStack justify="space-between" my={10}>
           <Box w="50%">
-          {/* This is for Filtering */}
-          <Menu matchWidth gutter={0}>
-            <MenuButton margin={0} as={Button} textAlign="left" rightIcon={<ChevronDownIcon />} variant="solid" w="20%" borderRadius="none" fontSize="14px" bg="black" color="white">
-              FILTER
-            </MenuButton>
-            <MenuList borderRadius="0px">
-              <MenuOptionGroup onChange={handleChange} title='Order' type='radio'>
-                <MenuItemOption value='asc'>Price, low to high</MenuItemOption>
-                <MenuItemOption value='desc'>Price, high to low</MenuItemOption>
-              </MenuOptionGroup>
-            </MenuList>
-          </Menu>
+            {/* This is for Filtering */}
+            <Menu matchWidth gutter={0}>
+              <MenuButton margin={0} as={Button} textAlign="left" rightIcon={<ChevronDownIcon />} variant="solid" w="20%" borderRadius="none" fontSize="14px" bg="black" color="white">
+                FILTER
+              </MenuButton>
+              <MenuList borderRadius="0px">
+                <MenuOptionGroup onChange={handleFiltering} title='Order' type='radio'>
+                  <MenuItemOption value='EAU DE PARFUM'>EAU DE PARFUM</MenuItemOption>
+                  <MenuItemOption value='PARFUM'>PARFUM</MenuItemOption>
+                  <MenuItemOption value='EAU DE COLOGNE'>EAU DE COLOGNE</MenuItemOption>
+                  <MenuItemOption value='EAU DE PARFUM FOR ALL'>EAU DE PARFUM FOR ALL</MenuItemOption>
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
 
-          {/* This is for Sorting */}
-          <Menu matchWidth gutter={0}>
-            <MenuButton margin={0} as={Button} textAlign="left" rightIcon={<ChevronDownIcon />} variant="outline" w="30%" borderRadius="none" fontSize="14px" colorScheme='whiteAlpha' color="black" >
-              SORT BY
-            </MenuButton>
-            <MenuList borderRadius="0px">
-              <MenuOptionGroup onChange={handleChange} title='Order' type='radio'>
-                <MenuItemOption value='asc'>Price, low to high</MenuItemOption>
-                <MenuItemOption value='desc'>Price, high to low</MenuItemOption>
-              </MenuOptionGroup>
-            </MenuList>
-          </Menu>
+            {/* This is for Sorting */}
+            <Menu matchWidth gutter={0}>
+              <MenuButton margin={0} as={Button} textAlign="left" rightIcon={<ChevronDownIcon />} variant="outline" w="30%" borderRadius="none" fontSize="14px" colorScheme='whiteAlpha' color="black" >
+                SORT BY
+              </MenuButton>
+              <MenuList borderRadius="0px">
+                <MenuOptionGroup onChange={handleSorting} title='Order' type='radio'>
+                  <MenuItemOption value='asc'>Price, low to high</MenuItemOption>
+                  <MenuItemOption value='desc'>Price, high to low</MenuItemOption>
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
           </Box>
           <Text>{dataLength} products</Text>
         </HStack>
