@@ -9,16 +9,16 @@
 ## Screenshots
 
 ### Homepage
-![Homepage](React-Bellavita-home.png)
+![Homepage](./images/React-Bellavita-home.png)
 
 ### Product Page
-![Product Page](product.png)
+![Product Page](./images/product.png)
 
 ### Signup Page
-![Signup Page](signup.png)
+![Signup Page](./images/signup.png)
 
 ### Login Page
-![Login Page](login.png)
+![Login Page](./images/login.png)
 
 ### Cart Page
 ![Cart Page](cart.png)
