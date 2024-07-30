@@ -21,7 +21,7 @@
 ![Login Page](./images/login.png)
 
 ### Cart Page
-![Cart Page](cart.png)
+![Cart Page](./images/cart.png)
 
 ## Acknowledgments
 
