@@ -25,4 +25,4 @@
 
 ## Acknowledgments
 
-I would like to thank all my team members for collaborating on the project.
+
