@@ -24,5 +24,4 @@
 ![Cart Page](./images/cart.png)
 
 ## Acknowledgments
-
-
+``` Thank you for visiting my project. ❤️ ```
