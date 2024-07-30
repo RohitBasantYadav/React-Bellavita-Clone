@@ -9,7 +9,7 @@
 ## Screenshots
 
 ### Homepage
-![Homepage](Home.png)
+![Homepage](React-Bellavita-home.png)
 
 ### Product Page
 ![Product Page](product.png)
